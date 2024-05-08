@@ -18,7 +18,7 @@ SCHAT_CLIENT_LIB = 1
 SCHAT_CORE_LIB = 1
 QT = core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets x11extras
 
 HEADERS  = \
    Idle.h \
