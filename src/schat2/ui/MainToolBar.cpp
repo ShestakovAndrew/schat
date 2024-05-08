@@ -17,17 +17,23 @@
 
 #include <QEvent>
 #include <QMenu>
+#include <QLineEdit>
 
 #include "ChatNotify.h"
 #include "sglobal.h"
 #include "ui/ChatIcons.h"
 #include "ui/MainToolBar.h"
 #include "ui/SoundButton.h"
+#include "tabs/UserView.h"
 
 MainToolBar::MainToolBar(QWidget *parent)
   : QToolBar(parent)
 {
   setIconSize(QSize(16, 16));
+
+  m_search = new QLineEdit(this);
+  m_search->setPlaceholderText(tr("Enter name..."));
+  m_search->setFixedWidth(250);
 
   m_menu     = new QMenu(this);
   m_settings = m_menu->addAction(SCHAT_ICON(Gear),  tr("Preferences..."));
@@ -45,6 +51,7 @@ MainToolBar::MainToolBar(QWidget *parent)
 
   m_sound = new SoundButton(this);
 
+  addWidget(m_search);
   addWidget(m_button);
   addWidget(m_sound);
 

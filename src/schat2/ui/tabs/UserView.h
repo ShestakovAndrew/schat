@@ -52,7 +52,8 @@ public:
 private slots:
   void channel(const ChannelInfo &info);
   void onSettingsChanged(const QString &key, const QVariant &value);
-
+  void updateUserList(const QString &filter);
+  
 protected:
   void contextMenuEvent(QContextMenuEvent *event) Q_DECL_OVERRIDE;
   void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;

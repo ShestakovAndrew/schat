@@ -20,6 +20,7 @@
 
 #include <QToolBar>
 
+class QLineEdit;
 class QMenu;
 class QToolButton;
 class SoundButton;
@@ -31,6 +32,7 @@ class MainToolBar : public QToolBar
 public:
   MainToolBar(QWidget *parent = 0);
   void setReady(bool ready);
+  inline QLineEdit *lineEdit() const { return m_search; }
 
 protected:
   void changeEvent(QEvent *event);
@@ -41,6 +43,7 @@ private slots:
 private:
   void retranslateUi();
 
+  QLineEdit *m_search;   ///< Сортировка по никам.
   QAction *m_about;      ///< О Simple Chat.
   QAction *m_quit;       ///< Выход из чата.
   QAction *m_settings;   ///< Настройки.

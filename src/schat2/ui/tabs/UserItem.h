@@ -38,6 +38,9 @@ public:
   bool reload();
   QVariant data(int role = Qt::UserRole + 1) const Q_DECL_OVERRIDE;
 
+  void SetNameFilter(QString const& filter);
+  QString GetNameFilter();
+
 private:
   int weight() const;
   QBrush color() const;
@@ -46,6 +49,7 @@ private:
   bool m_italic;           ///< Курсивный шрифт.
   bool m_self;             ///< \b true если это собственный итем пользователя.
   bool m_underline;        ///< Подчёркнутый шрифт.
+  QString m_nameFilter;
   ClientChannel m_channel; ///< Канал.
   ClientChannel m_user;    ///< Пользователь.
 };

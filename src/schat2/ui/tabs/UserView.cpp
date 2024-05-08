@@ -178,6 +178,17 @@ void UserView::onSettingsChanged(const QString &key, const QVariant &value)
 }
 
 
+void UserView::updateUserList(QString const& filter)
+{
+  foreach (UserItem *item, m_channels)
+  {
+    item->SetNameFilter(filter);
+    item->reload();
+  }
+  sort();
+}
+
+
 void UserView::contextMenuEvent(QContextMenuEvent *event)
 {
   QMenu menu(this);

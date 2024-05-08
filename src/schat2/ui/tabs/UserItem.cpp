@@ -30,6 +30,7 @@ UserItem::UserItem(ClientChannel user, ClientChannel channel)
   , m_self(false)
   , m_underline(false)
   , m_channel(channel)
+  , m_nameFilter("")
   , m_user(user)
 {
   m_self = ChatClient::id() == user->id();
@@ -37,6 +38,18 @@ UserItem::UserItem(ClientChannel user, ClientChannel channel)
   reload();
 }
 
+void UserItem::SetNameFilter(QString const& filter)
+{
+	if (m_nameFilter != filter)
+	{
+		m_nameFilter = filter;
+	}
+}
+
+QString UserItem::GetNameFilter()
+{
+	return m_nameFilter;
+}
 
 /*!
  * Обновление информации.
@@ -91,23 +104,32 @@ int UserItem::weight() const
   if (m_self)
     return 0;
 
+  else if (m_user->status() != Status::Offline && m_user->name().contains(m_nameFilter))
+    return 1;
+
+  else if (m_user->status() == Status::Offline && m_user->name().contains(m_nameFilter))
+    return 2;
+
+  else if (m_user->status() != Status::Offline && !m_user->name().contains(m_nameFilter))
+    return 3;
+
   else if (m_user->status() == Status::Offline)
     return 9;
 
   else if (m_underline)
-    return 1;
+    return 3;
 
   else if (m_bold)
-    return 2;
+    return 4;
 
   else if (m_italic)
     return 8;
 
   else if (m_user->gender().value() == Gender::Bot)
-    return 4;
+    return 5;
 
   else if (m_user->status() == Status::FreeForChat)
-    return 5;
+    return 6;
 
   return 7;
 }
@@ -118,8 +140,10 @@ int UserItem::weight() const
  */
 QBrush UserItem::color() const
 {
-  if (m_user->status() == Status::Offline)
+  if (m_user->status() == Status::Offline || !m_user->name().contains(m_nameFilter))
+  {
     return QColor(0x90a4b3);
+  }
 
   return QPalette().brush(QPalette::WindowText);
 }

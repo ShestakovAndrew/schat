@@ -236,11 +236,18 @@ ChannelBaseTab *TabWidget::channelTab(const QByteArray &id, bool create, bool sh
   }
 
   if (create) {
-    if (channel->type() == SimpleID::UserId)
+    if (channel->type() == SimpleID::UserId) 
+    {
       tab = new PrivateTab(channel, this);
+    }
     else if (channel->type() == SimpleID::ChannelId)
+    {
       tab = new ChannelTab(channel, this);
-
+      UserView* userView = static_cast<ChannelTab*>(tab)->userView();
+      QLineEdit* lineEdit = m_mainToolBar->lineEdit();
+      connect((const QObject*)lineEdit, SIGNAL(textChanged(QString)), userView, SLOT(updateUserList(QString)));
+    }
+      
     if (tab) {
       m_channels[id] = tab;
       tab->setOnline();
