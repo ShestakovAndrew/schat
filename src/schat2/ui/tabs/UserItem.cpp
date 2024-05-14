@@ -29,8 +29,8 @@ UserItem::UserItem(ClientChannel user, ClientChannel channel)
   , m_italic(false)
   , m_self(false)
   , m_underline(false)
+  , m_nameFilter(QString())
   , m_channel(channel)
-  , m_nameFilter("")
   , m_user(user)
 {
   m_self = ChatClient::id() == user->id();
@@ -101,37 +101,61 @@ QVariant UserItem::data(int role) const
  */
 int UserItem::weight() const
 {
-  if (m_self)
-    return 0;
+    if (m_self) return 0;
 
-  else if (m_user->status() != Status::Offline && m_user->name().contains(m_nameFilter))
-    return 1;
+    if (!m_nameFilter.isEmpty())
+    {
+        if (m_user->status() != Status::Offline && m_user->name().contains(m_nameFilter))
+            return 1;
 
-  else if (m_user->status() == Status::Offline && m_user->name().contains(m_nameFilter))
-    return 2;
+        else if (m_user->status() == Status::Offline && m_user->name().contains(m_nameFilter))
+            return 2;
 
-  else if (m_user->status() != Status::Offline && !m_user->name().contains(m_nameFilter))
-    return 3;
+        else if (m_user->status() != Status::Offline && !m_user->name().contains(m_nameFilter))
+            return 3;
 
-  else if (m_user->status() == Status::Offline)
-    return 9;
+        else if (m_user->status() == Status::Offline)
+            return 8;
 
-  else if (m_underline)
-    return 3;
+        else if (m_underline)
+            return 4;
 
-  else if (m_bold)
-    return 4;
+        else if (m_bold)
+            return 5;
 
-  else if (m_italic)
-    return 8;
+        else if (m_italic)
+            return 9;
 
-  else if (m_user->gender().value() == Gender::Bot)
-    return 5;
+        else if (m_user->gender().value() == Gender::Bot)
+            return 6;
 
-  else if (m_user->status() == Status::FreeForChat)
-    return 6;
+        else if (m_user->status() == Status::FreeForChat)
+            return 7;
 
-  return 7;
+        return 8;
+    }
+    else
+    {
+        if (m_user->status() == Status::Offline)
+            return 9;
+
+        else if (m_underline)
+            return 1;
+
+        else if (m_bold)
+            return 2;
+
+        else if (m_italic)
+            return 8;
+
+        else if (m_user->gender().value() == Gender::Bot)
+            return 4;
+
+        else if (m_user->status() == Status::FreeForChat)
+            return 5;
+
+        return 7;
+    }
 }
 
 
