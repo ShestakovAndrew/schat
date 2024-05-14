@@ -105,13 +105,13 @@ int UserItem::weight() const
 
     if (!m_nameFilter.isEmpty())
     {
-        if (m_user->status() != Status::Offline && m_user->name().contains(m_nameFilter))
+        if (m_user->status() != Status::Offline && m_user->name().toLower().contains(m_nameFilter.toLower()))
             return 1;
 
-        else if (m_user->status() == Status::Offline && m_user->name().contains(m_nameFilter))
+        else if (m_user->status() == Status::Offline && m_user->name().toLower().contains(m_nameFilter.toLower()))
             return 2;
 
-        else if (m_user->status() != Status::Offline && !m_user->name().contains(m_nameFilter))
+        else if (m_user->status() != Status::Offline && !m_user->name().toLower().contains(m_nameFilter.toLower()))
             return 3;
 
         else if (m_user->status() == Status::Offline)
@@ -164,7 +164,7 @@ int UserItem::weight() const
  */
 QBrush UserItem::color() const
 {
-  if (m_user->status() == Status::Offline || !m_user->name().contains(m_nameFilter))
+  if (m_user->status() == Status::Offline || !m_user->name().toLower().contains(m_nameFilter.toLower()))
   {
     return QColor(0x90a4b3);
   }
