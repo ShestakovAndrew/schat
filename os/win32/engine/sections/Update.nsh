@@ -1,5 +1,5 @@
 /* Simple Chat
- * Copyright � 2008-2014 Alexander Sedov <imp@schat.me>
+ * Copyright Р’В© 2008-2014 Alexander Sedov <imp@schat.me>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

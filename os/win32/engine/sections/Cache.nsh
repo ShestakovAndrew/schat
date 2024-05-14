@@ -1,6 +1,6 @@
 /* $Id: Cache.nsh 2220 2012-01-27 15:05:37Z IMPOMEZIA $
  * IMPOMEZIA Simple Chat
- * Copyright © 2008-2012 IMPOMEZIA <schat@impomezia.com>
+ * Copyright Р вЂ™Р’В© 2008-2012 IMPOMEZIA <schat@impomezia.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by

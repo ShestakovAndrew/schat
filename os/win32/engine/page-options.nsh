@@ -1,6 +1,6 @@
 /* $Id: page-options.nsh 2579 2012-04-28 12:56:50Z IMPOMEZIA $
  * IMPOMEZIA Simple Chat
- * Copyright � 2008-2012 IMPOMEZIA <schat@impomezia.com>
+ * Copyright Р’В© 2008-2012 IMPOMEZIA <schat@impomezia.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -84,7 +84,7 @@ FunctionEnd
 
 
 /**
- * �������������� ��������� �����
+ * Р В Р ВµР В·РЎС“Р В»РЎРЉРЎвЂљР С‘РЎР‚РЎС“РЎР‹РЎвЂ°Р В°РЎРЏ Р С•Р В±РЎР‚Р В°Р В±Р С•РЎвЂљР С”Р В° Р С•Р С—РЎвЂ Р С‘Р в„–
  */
 !macro SECTION_OPTIONS
 !if ${SCHAT_PAGE_OPTIONS} == 1
@@ -121,7 +121,7 @@ SectionEnd
 
 
 /**
- * ��������� ���������� ����� � �������� `SettingsPage`
+ * Р Р€Р С—РЎР‚Р В°Р Р†Р В»РЎРЏР ВµРЎвЂљ РЎРѓР С•РЎРѓРЎвЂљР С•РЎРЏР Р…Р С‘Р ВµР С� Р С•Р С—РЎвЂ Р С‘Р в„– Р Р† РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р Вµ `SettingsPage`
  */
 !define Option "!insertmacro Option"
 !macro Option _KEY _DEF _VAR

@@ -1,6 +1,6 @@
 /* $Id: Qt.nsh 3679 2013-06-08 16:38:22Z IMPOMEZIA $
  * IMPOMEZIA Simple Chat
- * Copyright � 2008-2013 IMPOMEZIA <schat@impomezia.com>
+ * Copyright Р’В© 2008-2013 IMPOMEZIA <schat@impomezia.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -32,6 +32,11 @@ ${Section}
   File "${SCHAT_SOURCE}\QtWebKit4.dll"
   File "${SCHAT_SOURCE}\ssleay32.dll"
   File "${SCHAT_SOURCE}\zlib.dll"
+  
+  File "${SCHAT_SOURCE}\libgcc_s_dw2-1.dll"
+  File "${SCHAT_SOURCE}\libstdc++-6.dll"
+  File "${SCHAT_SOURCE}\libwinpthread-1.dll"
+  
   File "${SCHAT_SOURCE}\qt.conf"
 
   !if ${SCHAT_VC100} == 1

@@ -1,6 +1,6 @@
 /* $Id: RawFeeds.nsh 3155 2012-10-11 21:05:13Z IMPOMEZIA $
  * IMPOMEZIA Simple Chat
- * Copyright © 2008-2012 IMPOMEZIA <schat@impomezia.com>
+ * Copyright Р вЂ™Р’В© 2008-2012 IMPOMEZIA <schat@impomezia.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
