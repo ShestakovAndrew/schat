@@ -14,7 +14,10 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-QT_CONFIG += system-zlib
+unix {
+    QT_CONFIG += system-zlib
+}
+
 include(../common/config.pri)
 
 SCHAT_RESOURCES = 1
